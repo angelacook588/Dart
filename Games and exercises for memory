@@ -1,0 +1,83 @@
+// Import necessary packages
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Cognitive Skills App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Games and Exercises'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to Memory Game
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MemoryGamePage()),
+                );
+              },
+              child: Text('Memory Game'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to Cognitive Skills Exercise
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CognitiveExercisePage()),
+                );
+              },
+              child: Text('Cognitive Skills Exercise'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MemoryGamePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Memory Game'),
+      ),
+      body: Center(
+        child: Text('Memory Game Content Goes Here'),
+      ),
+    );
+  }
+}
+
+class CognitiveExercisePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cognitive Skills Exercise'),
+      ),
+      body: Center(
+        child: Text('Cognitive Exercise Content Goes Here'),
+      ),
+    );
+  }
+}
