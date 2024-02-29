@@ -81,3 +81,32 @@ class CognitiveExercisePage extends StatelessWidget {
     );
   }
 }
+def select_category():
+    print("Choose a category:")
+    for category in categories:
+        print(category)
+    
+    selected_category = input("Enter the category: ").capitalize()
+    if selected_category in categories:
+        return selected_category
+    else:
+        print("Invalid category. Try again.")
+        return select_category()
+
+# Update main function
+def main():
+    print("Welcome to the Place Names Quiz Game!")
+
+    selected_category = select_category()
+    places_in_category = {k: v for k, v in places.items() if k in categories[selected_category]}
+
+    while True:
+        # Start a new round of the quiz with places from the selected category
+        quiz(places_in_category)
+
+        # Ask the user if they want to play again
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again != 'yes':
+            break
+
+    print("Thanks for playing!")
